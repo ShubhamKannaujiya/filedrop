@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="/fonts/CircularStd-Book.woff2"
+      as="font"
+      type="font/woff2"
+      crossOrigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>File Drop</title>
+  </head>
+  <body>
+    <section class="container">
+      <% if(locals.error){ %>
+      <div style="width: 352px">
+        <span class="title"><%= locals.error %></span>
+        <p class="description">Made by Shubham, Harsh & Tejal</p>
+        <a
+          href="https://filedrop.vercel.app/send"
+          style="margin-top: 20px"
+          class="button"
+          ><span>Upload Again</span></a
+        >
+      </div>
+      <% } else { %>
+      <span class="title">Download File</span>
+      <p class="description">Made by Shubham, Harsh & Tejal</p>
+      <span class="alert">Link expires in 24 hours</span>
+      <div class="meta">
+        <span class="file_name"><%= fileName %></span>
+        <span class="file_size"><%= parseInt(fileSize/1000) %> KB</span>
+      </div>
+      <a href="<%= downloadLink %>" class="button"
+        ><span>Download file</span></a
+      >
+      <% } %>
+    </section>
+  </body>
+</html>
